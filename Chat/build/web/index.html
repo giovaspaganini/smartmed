@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>SmartMED - Um Prontuário Digital</title>
+  
+  <meta name="author" content="Giovani Paganini">
+  <meta name="description" content="Desenvolvimento de sites responsivos e modernos atendendo suas necessidades.">
+  <meta name="robots" content="all">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+  <link rel="shortcut icon" href="favicon.png"/>
+  <script src="https://use.fontawesome.com/82f3f5046b.js">
+  </script>
+</head>
+	
+<body class="red loaded">    
+
+  <div id="login-page" class="row">
+    <div class="col s12 z-depth-2 card-panel">
+      <div class="card-content">
+        <form class="login-form" action="UsuarioLogar" method="POST">
+          <h1 class="card-title red-text">Login</h1>
+          <div class="row margin">
+            <div class="input-field col s12">              
+              <input id="login" name="login" type="text" class="validate" required>
+              <label class="center-align" for="login">Usuário</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">              
+              <input id="senha" name="senha" type="password" class="validate" required>
+              <label for="inputSenha">Senha</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="red btn waves-effect waves-light col s12" type="submit" name="action">Entrar</button>                    
+          </div>
+        </form>             
+      </div>
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/plugins.min.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  
+
+  </body>
+</html>

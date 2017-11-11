@@ -1,0 +1,63 @@
+CREATE TABLE public.curso
+(
+  id integer NOT NULL DEFAULT nextval('curso_id_seq'::regclass),
+  nome character varying(60) NOT NULL,
+  ch double precision,
+  status character varying(30),
+  dh_inicio timestamp without time zone NOT NULL,
+  dh_fim timestamp without time zone,
+  turma character varying(40),
+  CONSTRAINT curso_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.curso_usuario
+(
+  id_usuario integer NOT NULL,
+  id_curso integer NOT NULL,
+  status character varying(15),
+  CONSTRAINT curso_usuario_id_curso_fkey FOREIGN KEY (id_curso)
+      REFERENCES public.curso (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT curso_usuario_id_usuario_fkey FOREIGN KEY (id_usuario)
+      REFERENCES public.usuario (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+
+CREATE TABLE public.sessaochat
+(
+  id integer NOT NULL DEFAULT nextval('sessaochat_id_seq'::regclass),
+  id_curso integer NOT NULL,
+  dh_inicio timestamp without time zone NOT NULL,
+  dh_fim timestamp without time zone,
+  objetivo character varying(80),
+  status character varying(30),
+  CONSTRAINT sessaochat_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.usuario
+(
+  id integer NOT NULL DEFAULT nextval('usuario_id_seq'::regclass),
+  login character varying(30) NOT NULL,
+  senha character varying(30) NOT NULL,
+  usuario_aluno boolean NOT NULL,
+  usuario_tutor boolean NOT NULL,
+  nome character varying(80) NOT NULL,
+  CONSTRAINT usuario_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.usuario_sessaochat
+(
+  id_usuario integer NOT NULL,
+  id_sessaochat integer NOT NULL,
+  participou boolean,
+  CONSTRAINT usuario_sessaochat_id_sessaochat_fkey FOREIGN KEY (id_sessaochat)
+      REFERENCES public.sessaochat (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT usuario_sessaochat_id_usuario_fkey FOREIGN KEY (id_usuario)
+      REFERENCES public.usuario (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
